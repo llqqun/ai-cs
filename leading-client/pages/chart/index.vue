@@ -4,10 +4,17 @@ definePageMeta({
   navHeader: true,
   icon: 'i-heroicons-chart-bar'
 })
+const model = ref(null);
+const onModelChanged = (newModel) => {
+  model.value = newModel;
+  console.log("Model: ", model.value);
+}
 </script>
 
 <template>
-<div></div>
+  <ClientOnly>
+    <chat :model="model" />
+  </ClientOnly>
 </template>
 
 <style scoped>
